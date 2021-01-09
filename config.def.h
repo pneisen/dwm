@@ -42,6 +42,7 @@ static const Rule rules[] = {
   { "KeePassXC", "keepassxc", NULL, 0, 1, 0, 0, -1 },
   { "firefox", "Toolkit", "Picture-in-Picture", 0, 1, 0, 0, -1 },
   { "Gnome-calculator", "gnome-calculator", "Calculator", 0, 1, 0, 0, -1 },
+/*  { "VirtualBox", NULL, NULL, 0, 1, 0, 0, -1 }, */
   { "st-256color", "st-256color", NULL, 0, 0, 1, 0, -1 },
   { NULL, NULL, "Event Tester", 0, 0, 0, 1, -1 }, /* xev */
 };
@@ -94,6 +95,7 @@ static Key keys[] = {
   { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -44 $(/bin/pidof dwmblocks)") },
   { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -44 $(/bin/pidof dwmblocks)") },
   { MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("/usr/bin/keepassxc") },
+  { MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("/usr/bin/gnome-calculator") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
