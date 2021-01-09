@@ -31,7 +31,11 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"st", NULL,
+  "/usr/bin/nvidia-settings", "--load-config-only", NULL,
+  "/home/pneisen/.local/bin/dropbox.py", "start", NULL,
+  "/home/pneisen/.fehbg", NULL,
+  "/usr/bin/picom", "-b", "--unredir-if-possible", NULL,
+  "/usr/local/bin/dwmblocks", NULL,
 	NULL /* terminate */
 };
 
