@@ -35,6 +35,7 @@ static const char *const autostart[] = {
   "/home/pneisen/.local/bin/dropbox.py", "start", NULL,
   "/home/pneisen/.fehbg", NULL,
   "/usr/bin/picom", "-b", "--unredir-if-possible", NULL,
+  "/usr/bin/blueman-tray", NULL,
   "/usr/local/bin/dwmblocks", NULL,
 	NULL /* terminate */
 };
