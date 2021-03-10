@@ -104,6 +104,8 @@ static Key keys[] = {
   { 0, XF86XK_AudioMute, spawn, SHCMD("/usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(/bin/pidof dwmblocks)") },
   { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -44 $(/bin/pidof dwmblocks)") },
   { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -44 $(/bin/pidof dwmblocks)") },
+  { 0, XF86XK_AudioPrev, spawn, SHCMD("BLOCK_BUTTON=1 ~/.local/bin/volume; kill -44 $(/bin/pidof dwmblocks)") },
+  { 0, XF86XK_AudioNext, spawn, SHCMD("BLOCK_BUTTON=1 ~/.local/bin/volume; kill -44 $(/bin/pidof dwmblocks)") },
   { MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("/usr/bin/keepassxc") },
   { MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("/usr/bin/gnome-calculator") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
