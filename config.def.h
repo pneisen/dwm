@@ -32,9 +32,9 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
   "/usr/bin/nvidia-settings", "--load-config-only", NULL,
-  "/home/pneisen/.local/bin/dropbox.py", "start", NULL,
   "/home/pneisen/.fehbg", NULL,
   "/usr/bin/picom", "-b", "--unredir-if-possible", NULL,
+  "/usr/bin/openrgb","--startminimized", "--profile", "/home/pneisen/.config/OpenRGB/Orange.orp", NULL,
   "/usr/bin/blueman-tray", NULL,
   "/usr/local/bin/dwmblocks", NULL,
 	NULL /* terminate */
@@ -51,7 +51,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
   { "KeePassXC", "keepassxc", NULL, 0, 1, 0, 0, -1 },
   { "firefox", "Toolkit", "Picture-in-Picture", 0, 1, 0, 0, -1 },
-  { "Gnome-calculator", "gnome-calculator", "Calculator", 0, 1, 0, 0, -1 },
+  { "gnome-calculator", "gnome-calculator", "Calculator", 0, 1, 0, 0, -1 },
 /*  { "VirtualBox", NULL, NULL, 0, 1, 0, 0, -1 }, */
   { "st-256color", "st-256color", NULL, 0, 0, 1, 0, -1 },
   { NULL, NULL, "Event Tester", 0, 0, 0, 1, -1 }, /* xev */
@@ -101,9 +101,9 @@ static Key keys[] = {
   { Mod4Mask|ShiftMask,           XK_o,      spawn,          SHCMD("/bin/systemctl poweroff") },
   { Mod4Mask|ShiftMask,           XK_s,      spawn,          SHCMD("/bin/systemctl suspend") },
   { Mod4Mask|ShiftMask,           XK_r,      spawn,          SHCMD("/bin/systemctl reboot") },
-  { 0, XF86XK_AudioMute, spawn, SHCMD("/usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(/bin/pidof dwmblocks)") },
-  { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -44 $(/bin/pidof dwmblocks)") },
-  { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -44 $(/bin/pidof dwmblocks)") },
+  { 0, XF86XK_AudioMute, spawn, SHCMD("/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(/bin/pidof dwmblocks)") },
+  { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ .05-; kill -44 $(/bin/pidof dwmblocks)") },
+  { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ .05+; kill -44 $(/bin/pidof dwmblocks)") },
   { 0, XF86XK_AudioPrev, spawn, SHCMD("BLOCK_BUTTON=1 ~/.local/bin/volume; kill -44 $(/bin/pidof dwmblocks)") },
   { 0, XF86XK_AudioNext, spawn, SHCMD("BLOCK_BUTTON=1 ~/.local/bin/volume; kill -44 $(/bin/pidof dwmblocks)") },
   { MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("/usr/bin/keepassxc") },
